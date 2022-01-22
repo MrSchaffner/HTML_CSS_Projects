@@ -5,11 +5,12 @@ p {
 	background-color: crimson;
 	font-size: 50px;
 	text-align: center;
-	text-shadow: 5px 5px 5px blue; 
+	text-shadow: 5px 5px 5px red; 
 }
 
 table {
 	border: 3px dashed gray;
+	text-shadow: 5px 5px 5px red;
 }
 
 td:hover {
