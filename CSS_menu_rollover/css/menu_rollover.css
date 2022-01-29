@@ -43,6 +43,12 @@ body {
 
 }
 
+
+.menu li:hover {
+    color:white;
+    background-color:blue;
+}
+
 .menu li:hover ul {
     /*only visible when hovered*/
     display: block;
