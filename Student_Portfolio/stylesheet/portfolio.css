@@ -1,9 +1,52 @@
 /***** GENERAL STYLING *****/
-/* Body */
 body {
  overflow-x:hidden;
-    margin: 0%  /* This ensures our site displays all the way to the edge of the browser screen */
+    margin: 0%;  /* This ensures our site displays all the way to the edge of the browser screen */
+   position: absolute;
 }
+ 
+.sticky-bottom-right{
+    position:sticky;
+    position: -webkit-sticky;
+    bottom:0px;
+    right:0px;
+border: 10px solid blue;
+}
+
+.sticky-button-container{
+    position:absolute;
+ right:0px;
+ 
+border: 10px solid red;
+}
+
+/* copy pasted because i couldnt make it work: */
+.sticky-container {
+    width: 100%;
+    background-color: trqnsparent;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    position: sticky;
+    position: -webkit-sticky;
+    bottom: 0px;
+  }
+
+  .align-right {
+    background-color: blue;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+  }
+
+  .totallyHidden {
+    visibility: hidden;
+    height: 1px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* END sticky */
 
 .margin-top{
     margin-top: 12px;
@@ -35,9 +78,10 @@ p {
     font-family: Perpetua, Rockwell Extra Bold;
     text-align: justify; /* Justify text within paragraph elements */
     letter-spacing: 1px; /* This expands the text slightly */
-    font-size: 20px;
+    font-size: calc(12px+2vw); /*sets a minimum size and viewport size.*/
     padding-left: 20px; /* Adds padding to the left of the paragraph element */
     padding-right: 20px; /* Adds padding to the right of the paragraph element */
+
 }
 
 /* Paragraph element hover effect */
@@ -68,28 +112,22 @@ q {
 }
 
 /* Image elements */
-img {
+.imgCol img {
     /*filter: grayscale(75%);  This rids our pictures of 75% of their color */
     border-radius: 8px; /* Gives all images slightly rounded corners */
     max-width: 100%; /* Ensures all images stay within the width of their container */
-    height: 340px; /* Sets the height of all images */
+    height: 300 px; /* Sets the height of all images */
     display: block; /* By specifying block display we can ensure our images are able to be centered */
     margin-left: auto; /* In combination with "margin-right: auto" this centers all images */
     margin-right: auto;
 }
 
-/* Image element hover effects */
-img:hover {
-	/*filter: grayscale(5%);  /* Brings back most of the image's color when hovered over */
-    transition: transform 1s; /* Transition lasts 1 second */
-	transform: scale(1.1); /* Image is increased slightly when hovered over */
-}
 
 /* The @media rule is used in media queries to apply different styles for different media/types of devices */
 /* On screens 576px and smaller the images will be 100px tall and centered vertically in the column */
 @media screen and (max-width: 576px) {
-    img {
-        height: 100px;
+    .imgCol img {
+        height: 150px;
         margin-top: 150px;
     }
 }
@@ -109,15 +147,9 @@ footer {
     top: 0; /* This ensures no space is displayed above the navbar */
     width: 100%; /* This makes the navbar span the entire width of the page */
     z-index: 1; /* This ensures other elements don't display over the navbar */
-    -webkit-animation: moveNav 5s; /* This applies the moveNav animation below for Safari 4.0 - 8.0 */
-    animation: moveNav 5s; /* This applies the moveNav animation for all other browsers */
+
 }
 
-/* moveNav animation effect for moving the nav bar in from the left of the screen */
-@keyframes moveNav {
-    from {left: -100vw;} /* The navbar is starting off screen to the left */
-    to {left: 0vw;} /* This moves the navbar into place on the screen */
-}
 
 /* Navbar links */
 .Navbar a {
@@ -130,16 +162,8 @@ footer {
     font-size:20px; /* This specifies the font size for text on our navbar */
     height:50px;
     text-align: center; /* This centers the text within its container */
-    position: relative; /* This sets the text relative to its normal positioning, allowing us to use the animation below */
-    -webkit-animation: moveNavText 1s; /* Animation for Safari 4.0 - 8.0 */
-    animation: moveNavText 1s; /* Applies the moveNavText animation for 5.75s */ 
-}
-
-/* moveNavText animation effect for moving the navbar text from above the view to the navbar */
-@keyframes moveNavText {
-    from {top: -100vw;} /* This sets the navbar text 100% above the viewport */
-    to {top: 0vw;} /* This lowers the navbar text onto the navbar */
-}
+    position: relative; /* This sets the text relative to its normal positioning, allowing us to use the animations in animations.css*/
+    }
 
 /* Screens 576px and smaller will display navbar links equally distributed */
 @media screen and (max-width: 576px) {
@@ -149,12 +173,6 @@ footer {
     }
 }
 
-/* Navbar hover effects */
-.Navbar a:hover {
-    background-color: #f4f4f4; /* Defines the background color that will display when you hover over the link */
-    color: black; /* This defines the font color that will display when navbar a elements are hovered over */
-    font-weight: bold; /* This makes the text on the navbar bold when hovered over */
-}
 
 /* Navbar home button */
 .Navbar a.active { /* This targets the a element on the navbar with the "active" class */
